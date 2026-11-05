@@ -22,6 +22,21 @@
             document.body.style.overflow = "";
         }),
     );
+    const closeMenu = () => {
+        head.classList.remove("menu-open");
+        burger.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+    };
+    /* клик вне меню закрывает его */
+    document.addEventListener("click", (e) => {
+        if (!head.classList.contains("menu-open")) return;
+        if (e.target.closest(".mobile-menu") || e.target.closest(".burger")) return;
+        closeMenu();
+    });
+    /* Escape тоже */
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && head.classList.contains("menu-open")) closeMenu();
+    });
 
     /* появление секций при скролле */
     const io = new IntersectionObserver(
