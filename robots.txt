@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: замени домен на свой после привязки
+Sitemap: https://tvoy-domen.ru/sitemap.xml
